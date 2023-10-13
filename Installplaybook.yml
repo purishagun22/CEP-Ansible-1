@@ -1,0 +1,15 @@
+---
+- hosts: webserver
+  become: true
+  tasks:
+  - name: update the apt-get repo
+    command: sudo apt-get update
+  - name: Install gitn and maven 
+    package: name={{item}} state=present
+    loop:
+      - git
+      - maven
+  - name: Clone the code on worker nodes from github
+    git: repo=https://github.com/Sonal0409/DevOpsCodeDemo.git dest=/tmp/mycode
+  - name: Maven to build the code
+    command: chdir=/tmp/mycode mvn package
