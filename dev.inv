@@ -3,4 +3,4 @@
 172.31.5.20 ansible_user=ansiuser
 
 [awsserver]
-34.224.37.219 ansible_user=ansiuser
+54.89.227.105 ansible_user=ansiuser
